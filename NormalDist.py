@@ -3,8 +3,6 @@ import numpy as np
 mu, sigma = 0, 0.1
 s = np.random.normal(mu, sigma, 1000)
 
-print(s)
-
 import matplotlib.pyplot as plt
 count, bins, ignored = plt.hist(s,50,density=True)
 
