@@ -1,0 +1,5 @@
+Some coding projects to learn how to code better:
+
+1) Palindrome Checker
+2) Roman Numeral Converter
+3) Decimal to Binary Converter
