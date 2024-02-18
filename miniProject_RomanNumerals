@@ -1,0 +1,128 @@
+'''
+I = 1, V = 5, X = 10, L = 50, 
+C = 100, D = 500, M = 1000
+
+Only good for up to 3999
+'''
+
+nums = 3459
+idx = 0
+copy = nums
+digits = []
+ans = []
+
+while copy > 0:
+    digit = copy % 10
+    digits.insert(0, digit)
+    
+    copy = int(copy/10)
+    
+    
+for digit in digits:
+
+    num = digits[idx]*(10**(len(digits)-idx-1))
+    idx = idx + 1
+    
+    if num > 1000:
+        
+        thous = num/1000
+        
+        while thous > 0:
+            ans.append('M')
+
+            thous = thous -1
+            
+    elif num > 100:
+        
+        huns = num/100
+        
+        if huns == 9:
+            
+            ans.append('CM')
+        
+        elif huns > 5:
+            
+            ans.append('D')
+            
+            while huns > 5:
+                ans.append('C')
+                huns = huns -1
+        
+        elif huns == 5:
+            
+            ans.append('D')
+        
+        elif huns == 4:
+            
+            ans.append('CD')
+            
+        else:
+            
+            while huns > 0:
+                
+                ans.append('C')
+                huns = huns -1
+                
+    elif num > 10:
+        
+        tens = num/10
+                
+        if tens == 9:
+            
+            ans.append('XC')
+        
+        elif tens > 5:
+            
+            ans.append('L')
+            
+            while tens > 5:
+                ans.append('X')
+                tens = tens -1
+        
+        elif tens == 5:
+            
+            ans.append('L')
+        
+        elif tens == 4:
+            
+            ans.append('XL')
+            
+        else:
+            
+            while tens > 0:
+                
+                ans.append('X')
+                tens = tens -1
+    
+    else:
+        
+        ones = num
+                
+        if ones == 9:
+            
+            ans.append('IX')
+        
+        elif ones > 5:
+            
+            ans.append('V')
+            
+            while ones > 5:
+                ans.append('I')
+                ones = ones -1
+        
+        elif ones == 5:
+            
+            ans.append('V')
+        
+        elif ones == 4:
+            
+            ans.append('IV')
+            
+        else:
+            
+            while ones > 0:
+                
+                ans.append('I')
+                ones = ones -1
+
+print(''.join(ans))
